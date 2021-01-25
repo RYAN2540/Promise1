@@ -34,7 +34,6 @@ const fetchCountryData = async() => {
                 allLanguages.push(language.name)
             })
         })
-
         let uniqueLanguages = allLanguages.reduce(function(a, b) {
             if (a.indexOf(b) < 0) a.push(b);
             return a;
@@ -51,3 +50,16 @@ const fetchCountryData = async() => {
 
 fetchCatData()
 fetchCountryData()
+
+const catsAPI = 'https://api.thecatapi.com/v1/breeds';
+
+const metricWeight = async () => {
+    var catsData = await fetch(catsAPI);
+    var response = await catsData.json();
+    response.forEach(data => {
+        var weightDetails = data.weight.metric.split("-");
+        var averageWeight = parseInt(weightDetails[0] + weightDetails[1] / 2);
+        console.log(averageWeight);
+    });
+}
+metricWeight();
