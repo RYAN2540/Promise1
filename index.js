@@ -1,7 +1,17 @@
-const url = 'https://restcountries.eu/rest/v2/all'
-fetch(url)
-  .then(response => response.json()) // accessing the API data as JSON
-  .then(data => { // getting the data
-    console.log(data)
-  })
-  .catch(error => console.log(error)) // handling error if something wrong happens
+const countriesAPI = 'https://restcountries.eu/rest/v2/all'
+const fetchData = async() => {
+    try {
+        const response = await fetch(countriesAPI)
+        const countries = await response.json()
+        countries.forEach(country => {
+            languages = ""
+            country.languages.forEach(languageItem => {
+                languages += languageItem.name + ", "
+            })
+            console.log("Country: " + country.name + " Capital:  " + country.capital + " Languages: " + languages + " Population: " + country.population + " Area: " + country.area)
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+fetchData()
