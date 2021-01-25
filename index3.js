@@ -1,5 +1,4 @@
-const countriesAPI = 'https://restcountries.eu/rest/v2/all'
-const catsAPI = 'https://api.thecatapi.com/v1/breeds'
+const catsAPI = 'https://api.thecatapi.com/v1/breeds';
 
 const fetchCatData = async() => {
     try {
@@ -17,49 +16,3 @@ const fetchCatData = async() => {
         console.log(err)
     }
 }
-
-const fetchCountryData = async() => {
-    try {
-        const responseCountry = await fetch(countriesAPI)
-        const countries = await responseCountry.json()
-
-        largestCountries = countries.sort((a, b) => (a.area < b.area) ? 1 : -1).slice(0, 10);
-        largestCountries.forEach(country => {
-            console.log("country : " + country.name + ", Area:" + country.area)
-        })
-
-        let allLanguages = []
-        countries.forEach(country => {
-            country.languages.forEach(language => {
-                allLanguages.push(language.name)
-            })
-        })
-        let uniqueLanguages = allLanguages.reduce(function(a, b) {
-            if (a.indexOf(b) < 0) a.push(b);
-            return a;
-        }, []);
-        console.log("The Languages of the world are... ")
-        uniqueLanguages.forEach(uniqueLanguage => {
-            console.log(uniqueLanguagegit)
-        })
-        console.log(" and they are " + uniqueLanguages.length)
-    } catch (err) {
-        console.log(err)
-    }
-}
-
-fetchCatData()
-fetchCountryData()
-
-const catsAPI = 'https://api.thecatapi.com/v1/breeds';
-
-const metricWeight = async () => {
-    var catsData = await fetch(catsAPI);
-    var response = await catsData.json();
-    response.forEach(data => {
-        var weightDetails = data.weight.metric.split("-");
-        var averageWeight = parseInt(weightDetails[0] + weightDetails[1] / 2);
-        console.log(averageWeight);
-    });
-}
-metricWeight();
