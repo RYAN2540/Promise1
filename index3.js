@@ -1,6 +1,6 @@
 const catsAPI = 'https://api.thecatapi.com/v1/breeds';
 
-const fetchCatData = async() => {
+const fetchCatWeightData = async() => {
     try {
         const response = await fetch(catsAPI)
         const cats = await response.json()
@@ -16,4 +16,4 @@ const fetchCatData = async() => {
         console.log(err)
     }
 }
-fetchCatData()
+fetchCatWeightData()
