@@ -16,3 +16,4 @@ const fetchCatData = async() => {
         console.log(err)
     }
 }
+fetchCatData()
