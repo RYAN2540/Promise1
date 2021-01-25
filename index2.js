@@ -4,11 +4,11 @@ const fetchData = async() => {
     try {
         const response = await fetch(catsAPI)
         const cats = await response.json()
-        catNames = ""
+        catName = ""
         cats.forEach(item => {
-            catNames += item.name + " "
+            catName += item.name + " "
         })
-        console.log(catNames)
+        console.log(catName)
     } catch (err) {
         console.log(err)
     }
