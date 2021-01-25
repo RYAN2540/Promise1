@@ -6,9 +6,9 @@ const fetchData = async() => {
         countries.forEach(country => {
             
             country.languages.forEach(languageItem => {
-                languages += languageItem.name + ", "
+                languages += languageItem.name ", "
             })
-            console.log("Country: " + country.name + " Capital:  " + country.capital + " Languages: " + languages + " Population: " + country.population + " Area: " + country.area)
+            console.log("Country: " country.name " Capital: " country.capital " Languages: " languages " Population: " country.population " Area: " country.area)
         })
     } catch (err) {
         console.log(err)
